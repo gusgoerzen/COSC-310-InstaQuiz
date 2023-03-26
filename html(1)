@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>INSTAQUIZ - Login</title>
+    <style>
+      body {
+        background-color: #2196F3;
+      }
+      h1 {
+        color: white;
+        text-align: center;
+        padding-top: 40px;
+      }
+      form {
+        border: 3px solid #f1f1f1;
+        padding: 20px;
+        width: 50%;
+        margin: auto;
+        margin-top: 50px;
+        background-color: white;
+      }
+      input[type=email], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>INSTAQUIZ</h1>
+    <form action="login.php" method="post">
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>
