@@ -49,14 +49,25 @@
 			color: blue;
 		}
 	</style>
+	<script>
+		function loginStudent() {
+			// add code to handle student login
+			window.location.href = "homeStudent.html";
+		}
+
+		function loginInstructor() {
+			// add code to handle instructor login
+			window.location.href = "homeInstructor.html";
+		}
+	</script>
 </head>
 <body>
 	<form>
 		<h1>Login</h1>
 		<input type="email" placeholder="Email" required>
 		<input type="password" placeholder="Password" required>
-		<button type="submit" formaction="homeStudent.html">Login as Student</button>
-		<button type="submit" formaction="homeInstructor.html">Login as Instructor</button>
+		<button type="button" onclick="loginStudent()">Login as Student</button>
+		<button type="button" onclick="loginInstructor()">Login as Instructor</button>
 	</form>
 </body>
 </html>
