@@ -3,62 +3,62 @@
 <head>
 	<title>InstaQuiz - Home</title>
 	<style>
-		/* Style for the blue bar across the top */
-		.top-bar {
+		/* Style for the blue bar at the top */
+		.topbar {
 			background-color: blue;
 			color: white;
+			padding: 10px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			padding: 10px;
 		}
 
-		/* Style for the search and logout buttons */
-		.button {
-			background-color: white;
-			color: blue;
-			padding: 5px 10px;
-			border-radius: 5px;
+		/* Style for the buttons in the top bar */
+		.topbar button {
+			color: white;
+			background-color: transparent;
 			border: none;
 			font-size: 16px;
 			cursor: pointer;
 		}
 
-		/* Style for the main table */
+		/* Style for the table in the middle */
 		table {
+			margin: 50px auto;
 			border-collapse: collapse;
 			width: 80%;
-			margin: 50px auto;
-			text-align: center;
 		}
 
 		th, td {
-			border: 1px solid black;
-			padding: 10px;
+			padding: 8px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: blue;
+			color: white;
 		}
 	</style>
 </head>
 <body>
-	<div class="top-bar">
+	<div class="topbar">
 		<h1>InstaQuiz - Home</h1>
 		<div>
-			<button class="button">Search</button>
-			<button class="button">Logout</button>
+			<button>Search</button>
+			<button>Logout</button>
 		</div>
 	</div>
-
 	<table>
-		<caption>My Courses</caption>
 		<thead>
 			<tr>
-				<th>Course Name</th>
-				<th>Instructor</th>
-				<th>Start Date</th>
-				<th>End Date</th>
+				<th>My Courses</th>
 			</tr>
 		</thead>
 		<tbody>
-			<!-- The table is currently empty, so there are no rows here yet -->
+			<tr>
+				<td></td>
+			</tr>
 		</tbody>
 	</table>
 </body>
