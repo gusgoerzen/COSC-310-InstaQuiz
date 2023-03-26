@@ -1,60 +1,75 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>InstaQuiz</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Home Page</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-      }
-      header {
-        background-color: #2196F3;
-        height: 60px;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-      }
-      header h1 {
-        color: white;
-        font-size: 24px;
-        font-weight: normal;
-        line-height: 60px;
-        margin: 0;
-        text-align: center;
-      }
-      .logout {
-        float: left;
-        margin-left: 10px;
-        margin-top: 10px;
-      }
-      .search {
-        float: right;
-        margin-right: 10px;
-        margin-top: 10px;
-      }
-      .content {
-        margin-top: 60px;
-        padding: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="logout">
-        <button>Logout</button>
-      </div>
-      <h1>My Courses</h1>
-      <div class="search">
-        <input type="text" placeholder="Search...">
-        <button type="submit">Search</button>
-      </div>
-    </header>
-    <div class="content">
-      <p>Welcome to your home page!</p>
-      <!-- Insert your content here -->
-    </div>
-  </body>
+<head>
+<title>InstaQuiz</title>
+</head>
+<body>
+<div id="question-container"></div>
+<button onclick="promptQuestion()">Custom Question</button>
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<script>
+let questions = [];
+
+function promptQuestion() {
+  let question = prompt("Enter a question:");
+  let correctAnswer = prompt("Enter the correct answer:");
+  let answers = [correctAnswer];
+
+  for (let i = 0; i < 3; i++) {
+    let answer = prompt(Enter answer choice ${i + 1}:`);
+    answers.push(answer);
+  }
+
+  // Shuffle the answers array using Fisher-Yates algorithm
+  for (let i = answers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [answers[i], answers[j]] = [answers[j], answers[i]];
+  }
+   // Set the index of the correct answer
+  const correctAnswerIndex = answers.indexOf(correctAnswer);
+
+  questions.push({
+    question: question,
+    answers: answers,
+    correctAnswerIndex: correctAnswerIndex
+  });
+
+  let questionDiv = document.createElement("div");
+  questionDiv.innerHTML = Q${questions.length}. ${question}<br>;
+  for (let j = 0; j < answers.length; j++) {
+    let answerInput = document.createElement("input");
+    answerInput.setAttribute("type", "radio");
+    answerInput.setAttribute("name", question${questions.length});
+    answerInput.setAttribute("value", answers[j]);
+    if (j === correctAnswerIndex) {
+      answerInput.setAttribute("data-correct", true);
+    }
+    let answerLabel = document.createElement("label");
+    answerLabel.innerText = answers[j];
+    questionDiv.appendChild(answerInput);
+    questionDiv.appendChild(answerLabel);
+    questionDiv.appendChild(document.createElement("br"));
+  }
+  document.getElementById("question-container").appendChild(questionDiv);
+}
+
+function submitQuiz() {
+  let score = 0;
+  let inputs = document.getElementsByTagName("input");
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].type === "radio" && inputs[i].checked && inputs[i].getAttribute("data-correct")) {
+      score++;
+    }
+  }
+  alert(Your score is: ${score}`);
+}
+</script>
+</body>
 </html>
